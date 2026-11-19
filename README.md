@@ -1,12 +1,8 @@
 # Leonida Platinum — GTA VI Trophy Guide & Tracker
 
-[![make.fun competition](https://make.fun/api/badge/competition/gta6-trophy-guide-01)](https://make.fun/bounty/gta6-trophy-guide-01)
-[![make.fun rank](https://make.fun/api/badge/rank/gta6-trophy-guide-01)](https://make.fun/bounty/gta6-trophy-guide-01)
-[![make.fun reward](https://make.fun/api/badge/reward/gta6-trophy-guide-01)](https://make.fun/bounty/gta6-trophy-guide-01)
-
-> Badge format note: the badges above use the standard make.fun badge URL pattern
-> (`https://make.fun/api/badge/<type>/gta6-trophy-guide-01`) linking to the bounty page.
-> If the badge service uses a different path, the links to the bounty page still resolve.
+[![make.fun · gta6-trophy-guide-01](https://make.fun/badge/gta6-trophy-guide-01.svg)](https://make.fun/bounty/gta6-trophy-guide-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
+[![rank](https://make.fun/badge/gta6-trophy-guide-01/vickyair1/gta6-trophy-guide-01/rank.svg)](https://make.fun/bounty/gta6-trophy-guide-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
+[![reward](https://make.fun/badge/gta6-trophy-guide-01/vickyair1/gta6-trophy-guide-01/reward.svg)](https://make.fun/bounty/gta6-trophy-guide-01?utm_source=github&utm_medium=readme&utm_campaign=gta6-trophy-guide-01)
 
 An offline web app that guides and tracks all **55 PlayStation 5 trophies** of
 Grand Theft Auto VI: **1 platinum, 2 gold, 6 silver, 46 bronze** (28 hidden on
