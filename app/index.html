@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Platinum — GTA VI Trophy Guide &amp; Tracker</title>
+<meta name="description" content="Offline guide and tracker for all 55 GTA VI PlayStation 5 trophies: official names, descriptions and grades, a roadmap to the platinum, missable flags, and cited guides.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">
+    <div class="sun" aria-hidden="true"></div>
+    <div>
+      <h1>Leonida Platinum</h1>
+      <p class="tagline">GTA VI trophy guide &amp; tracker — 55 trophies, 1 platinum, 2 gold, 6 silver, 46 bronze</p>
+    </div>
+  </div>
+  <div class="header-actions">
+    <button id="themeToggle" type="button" title="Switch theme">☀ Sunset / Night</button>
+    <button id="spoilerToggle" type="button" title="Hide story trophy names and descriptions until earned">👁 Spoiler mode: off</button>
+  </div>
+</header>
+<nav class="tabs" aria-label="Guide sections">
+  <a href="#/checklist" data-route="checklist">Checklist</a>
+  <a href="#/roadmap" data-route="roadmap">Roadmap to Platinum</a>
+  <a href="#/missables" data-route="missables">Missables</a>
+  <a href="#/planner" data-route="planner">Next up</a>
+</nav>
+<section class="progress" aria-label="Progress">
+  <div class="progress-text"><strong id="progressCount">0 / 55 earned</strong><span id="progressPct">0%</span></div>
+  <div class="progress-bar"><div id="progressFill"></div></div>
+  <div class="grade-counts" id="gradeCounts"></div>
+</section>
+<section class="honesty">
+  <p><strong>Honest note:</strong> No trophy is permanently missable if mission replay is available — flags mark trophies tied to a single story moment; replay the mission if you miss it. Guides are our own words from the official descriptions; specific locations are best-effort until verified in-game.</p>
+</section>
+<div class="toolbar" id="toolbar">
+  <input id="search" type="search" placeholder="Search trophies by name or description…" aria-label="Search trophies">
+  <label>Grade <select id="gradeFilter"><option value="all">All grades</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
+  <label>Kind <select id="kindFilter"><option value="all">All kinds</option><option value="story">Story</option><option value="mission">Mission</option><option value="collectible">Collectible</option><option value="activity">Activity</option><option value="stunt">Stunt</option><option value="combat">Combat</option><option value="exploration">Exploration</option><option value="economy">Economy</option><option value="misc">Misc</option></select></label>
+  <label><input id="missableFilter" type="checkbox"> Missable only</label>
+  <label><input id="earnedFilter" type="checkbox"> Earned only</label>
+  <label><input id="unearnedFilter" type="checkbox"> Unearned only</label>
+  <button id="exportBtn" type="button">Export progress</button>
+  <label class="import-label">Import progress <input id="importFile" type="file" accept="application/json,.json"></label>
+  <span id="importStatus" role="status"></span>
+</div>
+<main id="view" aria-live="polite"></main>
+<footer>
+  <p>Sources: Exophase — official trophy list (names, descriptions, grades) · PSNProfiles — GTA VI trophy list (PSN progress targets). Guides are our own words; source links open only when you follow them. This app works fully offline and makes no network requests. Not affiliated with Rockstar Games; no Rockstar logo or artwork is used.</p>
+  <p>Progress is saved in this browser (localStorage). Export it to keep a backup, or import it on another device.</p>
+</footer>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
