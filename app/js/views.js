@@ -190,9 +190,9 @@ export function renderDetail(view, trophy, state, onToggle, onNote, sources) {
   earnedBtn.type = 'button';
   earnedBtn.textContent = state.earned.has(trophy.id) ? '✓ Earned — click to unmark' : 'Mark as earned';
   earnedBtn.addEventListener('click', () => onToggle(trophy.id));
-  wrap.append(document.createElement('br'), earnedBtn);
+  wrap.append(earnedBtn);
   if (trophy.missable) {
-    const w = el('p', 'warn', '⚠ Missable: ' + (trophy.missableNote || 'Tied to a single story moment.') + ' No trophy is permanently missable if mission replay is available — replay the mission if you miss it.');
+    const w = el('p', 'warn', '⚠ Missable: ' + (trophy.missableNote || 'Tied to a single story moment.') + ' GTA 6 has no mission replay — once this story moment passes, the trophy cannot be earned again. Do it while you are there and keep a Chapter 1 save.');
     wrap.append(w);
   }
   // Disagreement callout — visible, directly under the badges.
@@ -251,32 +251,29 @@ export function renderDetail(view, trophy, state, onToggle, onNote, sources) {
 // Stage copy carries NO numbers of its own: every figure on this page comes from the
 // trophy data (earned/total counts per stage, and each trophy's own target where present).
 const STAGES = [
-  { n: 1, title: 'Stage 1 — Story chapters', text: 'Play the story chapters in order, then the final mission. Story trophies pop as the plot advances — check the Missables page before each chapter.' },
-  { n: 2, title: 'Stage 2 — Named missions', text: 'Complete the named story missions in this stage. Each one carries its own trophy; replay a mission from the pause menu if a trophy does not pop.' },
-  { n: 3, title: 'Stage 3 — Side strands', text: 'Finish the side strands for the named contacts and the stranger strands across Leonida.' },
-  { n: 4, title: 'Stage 4 — Activities', text: 'Work through the activity trophies: races, drone races, fishing, arcade, bowling, and the partner and stunt moments.' },
-  { n: 5, title: 'Stage 5 — Collectibles & exploration', text: 'Mop up the collectible and exploration trophies: meditation spots, card sets, WAiNK It locations, vehicles, areas, challenges, stunts and Shooting Range challenges. Each trophy below shows its own target where the official list gives one.' },
-  { n: 6, title: 'Stage 6 — Cleanup & economy', text: 'Finish the economy trophies — robberies, laundering, spending, garages and vehicle registration — then the platinum pops once everything else is earned.' },
+  { n: 1, title: 'Stage 1 — Story chapters', text: 'Play the story chapters in order, then the final mission.' },
+  { n: 2, title: 'Stage 2 — Named missions', text: 'Named story missions, each with its own trophy — save manually before each one.' },
+  { n: 3, title: 'Stage 3 — Side strands', text: 'Finish the side strands for the named contacts and the stranger strands.' },
+  { n: 4, title: 'Stage 4 — Activities', text: 'Races, drone races, fishing, arcade, bowling, partner and stunt moments.' },
+  { n: 5, title: 'Stage 5 — Collectibles & exploration', text: 'Meditation spots, card sets, WAiNK It spots, vehicles, areas and challenges.' },
+  { n: 6, title: 'Stage 6 — Cleanup & economy', text: 'Robberies, laundering, spending, garages and registration — then the platinum pops.' },
 ];
 
 export function renderRoadmap(view, trophies, state) {
   view.replaceChildren();
   view.append(el('h2', null, 'Roadmap to the platinum'));
-  view.append(el('p', null, 'Play in this order. Check the Missables page before each story chapter and save manually before every final mission — a trophy tied to one story moment is easiest on the first pass, and mission replay is the safety net.'));
+  view.append(el('p', null, 'Play in this order. Check the Missables page before each story chapter and save manually before every final mission — GTA 6 has no mission replay, so a trophy tied to one story moment cannot be earned again once that moment has passed.'));
   for (const s of STAGES) {
     const box = el('section', 'roadmap-stage');
     box.append(el('h3', null, s.title));
     box.append(el('p', null, s.text));
     const mine = [...trophies].filter((t) => t.stage === s.n).sort(roadmapSort);
     const done = mine.filter((t) => state.earned.has(t.id)).length;
-    box.append(el('p', null, done + ' / ' + mine.length + ' earned in this stage'));
-    const ul = document.createElement('ul');
-    for (const t of mine) {
-      const li = document.createElement('li');
-      li.textContent = (state.earned.has(t.id) ? '✓ ' : '○ ') + (t.hidden && state.spoiler && !state.earned.has(t.id) ? 'Hidden story trophy' : t.name) + ' — ' + t.grade + (t.target != null ? ' · Target: ' + t.target : '');
-      ul.append(li);
-    }
-    box.append(ul);
+    box.append(el('p', 'stage-count', done + ' / ' + mine.length + ' earned in this stage'));
+    // Compact comma list (not a tall <ul>): every trophy name + earned mark, so all
+    // six stage cards fit one 1280×800 frame. Hidden names stay hidden in spoiler mode.
+    const names = mine.map((t) => (state.earned.has(t.id) ? '✓ ' : '○ ') + (t.hidden && state.spoiler && !state.earned.has(t.id) ? 'Hidden story trophy' : t.name));
+    box.append(el('p', 'stage-trophies', names.join(', ')));
     view.append(box);
   }
 }
@@ -286,7 +283,7 @@ export function renderRoadmap(view, trophies, state) {
 export function renderMissables(view, trophies, state) {
   view.replaceChildren();
   view.append(el('h2', null, 'Missable trophies — ' + trophies.filter((t) => t.missable).length + ' flagged'));
-  view.append(el('p', null, 'Every trophy below is tied to a single story moment. No trophy is permanently missable if mission replay is available — replay the mission if you miss it. Save manually before each one.'));
+  view.append(el('p', null, 'GTA 6 has no mission replay — a trophy tied to a single story moment cannot be earned again once that moment has passed. Only one trophy is flagged missable: Positive Mental Attitude, the Chapter 1 balcony meditation at Jason\'s house after "Down to Earth" — do it while you are there and keep a Chapter 1 save. The 12 story trophies and the 5 stranger-final trophies are earned at their story moments and are not missable. Save manually before each one.'));
   const ul = el('ul', 'trophy-list');
   for (const t of trophies.filter((x) => x.missable).sort(roadmapSort)) {
     const li = el('li', 'trophy-card');
