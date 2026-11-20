@@ -103,6 +103,31 @@ main { padding: 16px 24px 32px; max-width: 1100px; }
 .empty { color: var(--muted); padding: 20px 0; }
 footer { padding: 18px 24px 28px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
 footer p { margin: 6px 0; max-width: 1000px; }
+
+/* --- Citations (round 6): short answer, step [n] markers, confirm badges, source block --- */
+.detail h3 { margin: 14px 0 6px; }
+.detail p.answer { font-size: 17px; line-height: 1.55; margin: 0 0 4px; }
+.ref-mark { color: var(--accent); font-weight: 700; white-space: nowrap; }
+.badge.confirmed-badge { background: #14532d; color: #bbf7d0; border-color: #22c55e; text-transform: none; letter-spacing: 0; }
+.badge.unconfirmed-badge { background: #7f1d1d; color: #fecaca; border-color: #ef4444; text-transform: none; letter-spacing: 0; }
+.badge.cited { background: #1e3a5f; color: #bfdbfe; border-color: #3b82f6; text-transform: none; letter-spacing: 0; }
+.badge.uncited { background: transparent; color: var(--muted); text-transform: none; letter-spacing: 0; }
+.disagree { border: 1px solid var(--gold); background: rgba(255,209,102,.12); border-radius: 10px; padding: 10px 14px; font-weight: 600; }
+.sources-block li { margin: 6px 0; line-height: 1.5; }
+.src-num { color: var(--accent); font-weight: 700; }
+.src-url { color: var(--muted); font-size: 13px; word-break: break-all; }
+.src-note { color: var(--muted); font-size: 13px; }
+
+/* --- Source matrix page --- */
+.matrix-summary { display: flex; gap: 18px; flex-wrap: wrap; margin: 6px 0 14px; }
+.matrix-summary p { margin: 0; font-weight: 700; font-size: 15px; }
+.matrix-table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line); border-radius: 10px; overflow: hidden; }
+.matrix-table th, .matrix-table td { padding: 10px 12px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; line-height: 1.45; }
+.matrix-table thead th { background: var(--card2); color: var(--accent); }
+.matrix-table tbody tr:last-child td { border-bottom: none; }
+.matrix-table a { color: var(--accent); }
+.matrix-num { white-space: nowrap; font-weight: 700; }
+
 @media (max-width: 700px) {
   .site-header { flex-direction: column; align-items: flex-start; }
   h1 { font-size: 24px; }
