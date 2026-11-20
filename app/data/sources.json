@@ -1,0 +1,53 @@
+{
+  "sources": [
+    {
+      "id": 1,
+      "name": "PowerPyx — GTA 6 Trophy Guide",
+      "url": "https://www.powerpyx.com/gta-6-grand-theft-auto-vi-trophy-guide-roadmap/",
+      "note": "full page read",
+      "trophies_covered": 55
+    },
+    {
+      "id": 2,
+      "name": "Output Lag — GTA 6 Trophy List",
+      "url": "https://outputlag.com/guides/gta-6-trophy-list/",
+      "note": "full page read",
+      "trophies_covered": 55
+    },
+    {
+      "id": 3,
+      "name": "KeenGamer — GTA 6 Trophy Guide & Platinum Roadmap",
+      "url": "https://www.keengamer.com/articles/guides/gta-6-trophy-guide-platinum-roadmap-all-55-trophies/",
+      "note": "full page read",
+      "trophies_covered": 55
+    },
+    {
+      "id": 4,
+      "name": "GTA-Zone — GTA 6 Trophies & Achievements",
+      "url": "https://gta-zone.com/news/gta-6-trophies-achievements/",
+      "note": "full page read",
+      "trophies_covered": 55
+    },
+    {
+      "id": 5,
+      "name": "eGamers — GTA 6 Trophy List",
+      "url": "https://egamers.io/gta-6-trophy-list-all-55-trophies-and-achievements-plus-the-hardest-ones/",
+      "note": "full page read",
+      "trophies_covered": 55
+    },
+    {
+      "id": 6,
+      "name": "Exophase — Grand Theft Auto VI Trophies",
+      "url": "https://www.exophase.com/game/grand-theft-auto-vi-psn/trophies/",
+      "note": "full page read (text fetch shows descriptions + rarity only; trophy names stripped)",
+      "trophies_covered": 55
+    },
+    {
+      "id": 7,
+      "name": "PSNProfiles — Grand Theft Auto VI Trophies",
+      "url": "https://psnprofiles.com/trophies/43531-grand-theft-auto-vi",
+      "note": "fetch blocked HTTP 403 on 2026-11-20; list verified via Exophase + guides",
+      "trophies_covered": 0
+    }
+  ]
+}
