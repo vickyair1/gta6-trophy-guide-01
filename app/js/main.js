@@ -1,11 +1,14 @@
 // main.js — boot the guide: load data, wire the store, filters, theme, spoiler mode and hash routing.
-import { loadTrophies } from './data.js';
+import { loadTrophies, loadSources } from './data.js';
 import { loadState, saveState, toggleEarned, setNote, exportProgress, validateImport } from './store.js';
-import { renderChecklist, renderDetail, renderRoadmap, renderMissables, renderPlanner } from './views.js';
+import { renderChecklist, renderDetail, renderRoadmap, renderMissables, renderPlanner, renderMatrix } from './views.js';
 
 const view = document.getElementById('view');
 const state = loadState();
 let trophies = [];
+// The source registry (app/data/sources.json), or null when the file is missing —
+// views fall back to each trophy's own `sources` array in that case.
+let sources = null;
 
 function applyTheme() {
   document.body.dataset.theme = state.theme;
@@ -53,12 +56,13 @@ function route() {
   const onNote = (id, text) => setNote(state, id, text);
   if (page === 'detail') {
     const t = trophies.find((x) => x.id === Number(parts[1]));
-    if (t) renderDetail(view, t, state, onToggle, onNote);
-    else renderChecklist(view, trophies, state, filterOpts(), onToggle);
+    if (t) renderDetail(view, t, state, onToggle, onNote, sources);
+    else renderChecklist(view, trophies, state, filterOpts(), onToggle, sources);
   } else if (page === 'roadmap') renderRoadmap(view, trophies, state);
   else if (page === 'missables') renderMissables(view, trophies, state);
   else if (page === 'planner') renderPlanner(view, trophies, state);
-  else renderChecklist(view, trophies, state, filterOpts(), onToggle);
+  else if (page === 'matrix') renderMatrix(view, trophies, sources);
+  else renderChecklist(view, trophies, state, filterOpts(), onToggle, sources);
 }
 
 document.getElementById('themeToggle').addEventListener('click', () => {
@@ -99,7 +103,8 @@ window.addEventListener('hashchange', route);
 applyTheme();
 applySpoilerButton();
 try {
-  trophies = await loadTrophies();
+  // loadSources() never throws: it returns null when data/sources.json is missing.
+  [trophies, sources] = await Promise.all([loadTrophies(), loadSources()]);
 } catch (err) {
   view.textContent = 'Could not load the trophy list: ' + err.message;
   throw err;
