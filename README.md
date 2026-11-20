@@ -28,7 +28,7 @@ Bounty: https://make.fun/bounty/gta6-trophy-guide-01
 
 ## Honest notes (also shown in the app)
 
-- No trophy is permanently missable if mission replay is available — flags mark trophies tied to a single story moment; replay the mission if you miss it.
+- GTA 6 has no mission replay, so a trophy tied to a single story moment cannot be earned again once that moment has passed. Only one trophy is flagged missable — Positive Mental Attitude, the Chapter 1 balcony meditation at Jason's house after "Down to Earth" — so do it while you are there and keep a Chapter 1 save. The 12 story trophies and the 5 stranger-final trophies are earned at their story moments and are not missable.
 - Guides are our own words from the official descriptions; specific locations are best-effort until verified in-game.
 
 ## How to run offline
